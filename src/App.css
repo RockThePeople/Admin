@@ -1,12 +1,14 @@
-.App {
-  text-align: center;
+.textContainer {
+  margin-top: 20px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.container{
+  display: flex;
 }
 
+.buttonContainer {
+  flex-direction: row;
+}
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
@@ -26,6 +28,11 @@
 
 .App-link {
   color: #61dafb;
+}
+
+.others{
+  flex: 4;
+  background-color:rgb(188, 204, 193);
 }
 
 @keyframes App-logo-spin {
