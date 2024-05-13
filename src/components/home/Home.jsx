@@ -5,38 +5,58 @@ import Chart from "./Chart";
 import Sidebar from './Sidebar';
 import Newmember from "./Newmember";
 import Request from "./Request";
+import Accept  from "./Accept";
+
+
+const data_new=[{"name":"Anna", "job":"Electronic Engineering", "email":"orangejwi0618@naver.com"},
+{ "name":"Tom", "job":"Soft Engineering", "email": "dlswl0618@inu.ac.kr"}
+]
+const data_req=[{"name": "Susan", "date": "2 Jun 2024", "email": "abcd@inu.ac.kr"},
+    {"name":"Dayun", "date":"3 Jun 2024", "email":"efgh@inu.ac.kr"}
+]
+const data_acc=[{"name": "Susan", "job":"Electronic Engineering" ,"email": "abcd@inu.ac.kr", "menu":"Americano"},
+{"name":"Dayun", "job":"Soft Engineering", "email":"efgh@inu.ac.kr", "menu":"Latte"}
+]
 
 export default function Home() {
     return (
-    <div className="homeWidgets"> 
-        <Newmember  
-            name1 = "Anna"
-            job1="Electronic Engineering"  
-            name2 = "Tom"
-            job2="Soft Engineering" 
-            name3 = "Tony"
-            job3 = "Management"
-        />
+    <div className="home">
+        <div className="homeWidgets"> 
+            <Newmember  
+                name1 ={data_new[0].name}
+                job1={data_new[0].job}
+                email1={data_new[0].email}
+                name2 ={data_new[1].name}
+                job2={data_new[1].job}
+                email2={data_new[1].email} 
+            />
 
-        <Request
-            name1="Susan"
-            date1="2 Jun 2024"
-            menu1="Americano"
-            status1="Declined"
-            name2="Dayun"
-            date2="3 Jun 2024"
-            menu2="Latte"
-            status2="Approved"
-            name3="Daehong"
-            date3="4 Jun 2024"
-            menu3="Coldbrew"
-            status3="Panding"
-            name4="Dweb"
-            date4="5 Jun 2024"
-            menu4="Black Tea"
-            status4="Approved"
-             />
+            <Request
+                name1={data_req[0].name}
+                date1={data_req[0].date}
+                email1={data_req[0].email}
+            
+                name2={data_req[1].name}
+                date2={data_req[1].date}
+                email2={data_req[1].email}
+            
+            />
+        </div>
+        <div className="accept">
+        <Accept
+            name1={data_acc[0].name}
+            job1 = {data_acc[0].job}
+            email1={data_acc[0].email}
+            menu1={data_acc[0].menu}
+
+            name2={data_acc[1].name}
+            job2={data_acc[1].job}
+            email2={data_acc[1].email}
+            menu2={data_acc[1].menu}
+        />
+        </div>
     </div>
+
     )
 }
 
