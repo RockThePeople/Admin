@@ -1,5 +1,5 @@
 import "./App.css";
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Route, Routes } from "react-router-dom"; // Routes 대신 Route를 가져옴
 import Topbar from "./components/home/Topbar";
 import Login from "./components/home/Login";
@@ -13,17 +13,34 @@ import Month from './componets/sidebar/Month';
 import Sidebar from './components/home/Sidebar';
 import { useState } from "react";
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  const handleLogin = () => {
-    setIsLoggedIn(true);
+  const [account, setAccount] = useState(null); // Ethereum 계정 상태
+  const getRequestAccounts = async () => {
+    try {
+      const [account] = await window.ethereum.request({
+        method: 'eth_requestAccounts',
+      });
+      setAccount(account); // Ethereum 계정 상태 업데이트
+      console.log('현재 계정:', account);
+    } catch (error) {
+      console.error('계정 요청 오류:', error);
+    }
   };
 
+  const [renderSidebar, setRenderSidebar] = useState(false);
+  useEffect(()=>{
+    getRequestAccounts();
+    if(account !== null) {
+      setRenderSidebar(true);
+      console.log("rendering");
+    }
+  },[account])
+  
   return (
     <div className="App">
       <Topbar  />
       <div className="container">
-        <Sidebar  />
+        {renderSidebar && <Sidebar  />}
         <div className="others">
           <Routes> {/* 여기서 Routes 대신 Route를 사용해야 합니다. */}
             <Route path="*" element={<Login />}  />
