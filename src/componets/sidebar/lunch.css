@@ -1,0 +1,9 @@
+.lunch_home{
+    flex: 4;
+    background-color: rgb(165, 182, 165);
+    
+}
+
+.lunch_container {
+    display: flex;
+  }

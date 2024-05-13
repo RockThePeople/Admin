@@ -70,7 +70,7 @@ class Example extends PureComponent {
                 <XAxis dataKey={"name"} stroke='#274e17'/>
                 <Line type="monotone" dataKey="Active User"/>
                 <Tooltip/>
-                CartesianGrid stroke="#274e17" strokeDasharray={"5 5"}/>
+                CartesianGrid stroke="#274e17" strokeDasharray={"5 5"}
             </LineChart>
         </ResponsiveContainer>
     </div>

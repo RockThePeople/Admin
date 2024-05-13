@@ -1,21 +1,20 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
+import { createRoot } from 'react-dom/client'; // react-dom/client에서 createRoot 가져오기
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { MemoryRouter } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
+const root = createRoot(document.getElementById('root')); // createRoot를 사용하여 root 생성
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <MemoryRouter>
-      <App />
-    </MemoryRouter>
+    <BrowserRouter>
+      
+        <App />
+      
+    </BrowserRouter>
   </React.StrictMode>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-//reportWebVitals();
+reportWebVitals();

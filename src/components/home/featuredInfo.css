@@ -1,8 +1,9 @@
 .featured{
-    width: 50%;
+    width: 25%;
     display: flex;
     justify-content: space-between;
     margin-top: 10px;
+    
 }
 .featuredItem{
     flex: 1;

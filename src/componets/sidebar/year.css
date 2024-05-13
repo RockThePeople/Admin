@@ -1,0 +1,9 @@
+.year_home{
+    flex: 4;
+    background-color: rgb(165, 182, 165);
+   
+}
+
+.year_container {
+    display: flex;
+  }
