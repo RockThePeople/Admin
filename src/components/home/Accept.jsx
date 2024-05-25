@@ -3,7 +3,7 @@ import './accept.css';
 import AssignmentIndIcon from '@mui/icons-material/AssignmentInd';
 import Modal from './Modal';
 import { useState } from "react";
-export default function Accept({ name1, job1, email1,menu1, name2, job2, email2, menu2,name3, job3, email3,menu3 }) {
+export default function Accept({ name1, job1, email1,menu1, name2, job2, email2, menu2,name3, job3, email3,menu3,props }) {
     const [modalOpen1, setModalOpen1] = useState(false);
     const [modalOpen2, setModalOpen2] = useState(false);
     const [modalOpen3, setModalOpen3] = useState(false);

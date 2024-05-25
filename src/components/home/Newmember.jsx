@@ -78,7 +78,7 @@ export default function Newmember({ name1, job1, email1, metamask1, name2, job2,
                             <p><span className="boldText">Name:</span> {name2}</p>
                             <p><span className="boldText">Job:</span> {job2}</p>
                             <p><span className="boldText">Email:</span> {email2}</p>
-                            <p><span className="boldText">Metamask:</span>{metamask2}</p>
+                            <p><span className="boldText">Metamask:</span>{metamask1}</p>
                         </div>
                     </Modal>
                 </li>
