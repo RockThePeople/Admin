@@ -50,11 +50,11 @@
 /* request.css */
 
 .restatus button {
-    width: 100%;
+    width: 150%;
     padding: 5px;
     border: none;
     cursor: pointer;
-    width: 45%;
+    
 }
 
 .restatus button:hover {
@@ -66,7 +66,7 @@
     color: white;
 }
 
-.restatus button.Denied {
+.restatus button.Reject {
     background-color: rgb(175, 117, 117);
     color: white;
     

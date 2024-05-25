@@ -3,7 +3,7 @@ import './newmember.css';
 import AssignmentIndIcon from '@mui/icons-material/AssignmentInd';
 import Modal from './Modal';
 
-export default function Newmember({ name1, job1, email1, name2, job2, email2, name3, job3, email3 }) {
+export default function Newmember({ name1, job1, email1, metamask1, name2, job2, email2,metamask2}) {
     const [modalOpen1, setModalOpen1] = useState(false);
     const [modalOpen2, setModalOpen2] = useState(false);
     const [modalOpen3, setModalOpen3] = useState(false);
@@ -58,6 +58,7 @@ export default function Newmember({ name1, job1, email1, name2, job2, email2, na
                             <p><span className="boldText">Name:</span> {name1}</p>
                             <p><span className="boldText">Job:</span> {job1}</p>
                             <p><span className="boldText">Email:</span> {email1}</p>
+                            <p><span className="boldText">Metamask:</span>{metamask1}</p>
                         </div>
                     </Modal>
                 </li>
@@ -77,6 +78,7 @@ export default function Newmember({ name1, job1, email1, name2, job2, email2, na
                             <p><span className="boldText">Name:</span> {name2}</p>
                             <p><span className="boldText">Job:</span> {job2}</p>
                             <p><span className="boldText">Email:</span> {email2}</p>
+                            <p><span className="boldText">Metamask:</span>{metamask2}</p>
                         </div>
                     </Modal>
                 </li>

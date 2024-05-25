@@ -46,15 +46,15 @@ export default function Request({name1, date1, email1, name2, date2, email2, nam
         }
     }
 
-        const Button = ({ type, member }) => {
+        const Button = ({ type, member,email }) => {
             let buttonClassName = 'restatus';
-            let word = '';
             if (type === 'Accept') {
                 buttonClassName += ' Accept';
-                word = '요청을 수락하시겠습니까?'
-            } else if (type === 'Denied') {
-                buttonClassName += ' Denied';
-                word = '요청을 거절하시겠습니까?'
+            } else if (type === 'Reject') {
+                buttonClassName += ' Reject';
+            }
+            const handleClick=()=>{
+                openModal(member)
             }
             
             return (
@@ -62,11 +62,6 @@ export default function Request({name1, date1, email1, name2, date2, email2, nam
                     <button className={buttonClassName} onClick={() => openModal(member)}>
                         {type}
                     </button>
-                    <Modal open={member === 'member1' ? modalOpen1 : member === 'member2' ? modalOpen2 : member === 'member3' ? modalOpen3 : modalOpen4} close={() => closeModal(member)} header="Notification">
-                        <div>
-                            <p>{word}</p>
-                        </div>
-                    </Modal>
                 </div>
             );
         }    
@@ -91,7 +86,7 @@ export default function Request({name1, date1, email1, name2, date2, email2, nam
                     <td className="restatus">
                         <div className="buttonContainer">
                             <Button type="Accept" member="member1" />
-                            <Button type="Denied" member="member1" />
+                            <Button type="Reject" member="member1" />
                         </div>
                     </td>
                 </tr>
@@ -111,7 +106,7 @@ export default function Request({name1, date1, email1, name2, date2, email2, nam
                     <td className="restatus">
                         <div className="buttonContainer">
                             <Button type="Accept" />
-                            <Button type="Denied" />
+                            <Button type="Reject" />
                         </div>
                     </td>
                 </tr>

@@ -8,8 +8,8 @@ import Request from "./Request";
 import Accept  from "./Accept";
 
 
-const data_new=[{"name":"Anna", "job":"Electronic Engineering", "email":"orangejwi0618@naver.com"},
-{ "name":"Tom", "job":"Soft Engineering", "email": "dlswl0618@inu.ac.kr"}
+const data_new=[{"name":"Anna", "job":"Electronic Engineering", "email":"orangejwi0618@naver.com", "metamask":"0x15e6ebbcccccc"},
+{ "name":"Tom", "job":"Soft Engineering", "email": "dlswl0618@inu.ac.kr", "metamask":"0x14e6ecbb6c60f1d4032"}
 ]
 const data_req=[{"name": "Susan", "date": "2 Jun 2024", "email": "abcd@inu.ac.kr"},
     {"name":"Dayun", "date":"3 Jun 2024", "email":"efgh@inu.ac.kr"}
@@ -26,9 +26,11 @@ export default function Home() {
                 name1 ={data_new[0].name}
                 job1={data_new[0].job}
                 email1={data_new[0].email}
+                metamask1={data_new[0].metamask}
                 name2 ={data_new[1].name}
                 job2={data_new[1].job}
                 email2={data_new[1].email} 
+                metamask2={data_new[1].metamask}
             />
 
             <Request
