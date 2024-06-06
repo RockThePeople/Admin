@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import './request.css';
 import AssignmentIndIcon from '@mui/icons-material/AssignmentInd';
-import { confirmDID, getRequestListAPI } from "../../api/api";
+import { confirmDID, getRequestListAPI,sendConfirmEmail } from "../../api/api";
 import Modal from "./Modal";
 
 export default function Request() {
@@ -42,13 +42,25 @@ export default function Request() {
         }
     }
 
-    const acceptRequest = async (account) => {
+    const acceptRequest = async (account, email) => {
         const res = await confirmDID(account);
         if (res) {
             alert("성공적으로 수락이 진행되었습니다");
         }
+        const res2 = await sendConfirmEmail(email);
+        if ( res2 ) { 
+            alert("메일이 전송되었습니다.");
+        }
     }
 
+    const sendEmail = async (email) => {
+        const res2 = await sendConfirmEmail(email);
+        if ( res2 ) { 
+            alert("메일이 전송되었습니다.");
+        }
+    }
+
+    //<button className="Reject" onClick={() => openModal(`member${index + 1}`)}>Reject</button>
     return (
         <div className="request">
             <h3 className="retitle">Request to Accept <button className="Accept" onClick={getRequestList}>Check</button></h3>
@@ -61,6 +73,7 @@ export default function Request() {
                         <th className="reth">Email</th>
                     </tr>
                 </thead>
+                <button className="Reject" onClick={() => sendEmail('rabbitlin@naver.com')}>Reject</button>
                 <tbody>
                     {requestList.map((member, index) => (
                         <tr key={index} className="retr">
@@ -73,8 +86,9 @@ export default function Request() {
                             <td className="remenu">{member.email}</td>
                             <td className="restatus">
                                 <div className="buttonContainer">
-                                    <button className="Accept" onClick={() => acceptRequest(member.account)}>Accept</button>
-                                    <button className="Reject" onClick={() => openModal(`member${index + 1}`)}>Reject</button>
+                                    <button className="Accept" onClick={() => acceptRequest(member.account, member.email)}>Accept</button>
+                                    
+                                    <button className="Reject" onClick={() => sendEmail(member.email)}>Reject</button>
                                     <Modal open={index === 0 ? modalOpen1 : modalOpen2} close={() => closeModal(`member${index + 1}`)}>
                                         <div>
                                             <p><span className="boldText">"거절하시겠습니까?"</span></p>

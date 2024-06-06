@@ -1,5 +1,25 @@
 import { URL } from "../const";
 
+export const sendConfirmEmail = async (email) => {
+    const jwtToken = localStorage.getItem("jwtToken");
+    console.log(jwtToken);
+    console.log(JSON.stringify({email :email}))
+    alert(email);
+    const res = await fetch(`http://52.79.126.94:8082/api/members/request/accept`, {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${jwtToken}`,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ email : email })
+      });
+    if (res.ok) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
 export const getRequestAccounts = async () => {
     try {
         const [account] = await window.ethereum.request({
